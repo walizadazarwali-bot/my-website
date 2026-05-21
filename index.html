@@ -1,0 +1,1262 @@
+
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اافغانستان لنډه پیژندنه </title>
+
+<style>
+   
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Tahoma,sans-serif;
+background:#f4f7fb;
+direction:rtl;
+}
+
+header{
+background:linear-gradient(135deg,#0b5d3b,#1b8f5a);
+color:white;
+padding:25px;
+text-align:center;
+}
+
+header h1{
+font-size:30px;
+}
+
+.container{
+width:95%;
+max-width:1300px;
+margin:auto;
+padding:20px 0;
+}
+
+.profile{
+background:white;
+padding:20px;
+border-radius:20px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #1b8f5a;
+margin-bottom:10px;
+}
+
+.profile h2{
+color:#0b5d3b;
+margin-bottom:10px;
+}
+
+.search{
+margin-bottom:20px;
+}
+
+.search input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:18px;
+outline:none;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+cursor:pointer;
+transition:0.3s;
+border-top:5px solid #1b8f5a;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+color:#0b5d3b;
+margin-bottom:10px;
+}
+
+.modal{
+position:fixed;
+top:0;
+right:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+padding:15px;
+z-index:999;
+}
+
+.modal-content{
+background:white;
+width:100%;
+max-width:550px;
+max-height:90vh;
+overflow:auto;
+padding:20px;
+border-radius:20px;
+position:relative;
+}
+
+.close{
+position:absolute;
+left:15px;
+top:10px;
+font-size:30px;
+cursor:pointer;
+color:red;
+}
+
+.district{
+background:#f3f6fb;
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+cursor:pointer;
+}
+
+.info{
+display:none;
+background:#e9f8ef;
+padding:10px;
+margin-top:8px;
+border-radius:10px;
+}
+
+footer{
+background:#0b5d3b;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}
+
+@media(max-width:768px){
+header h1{
+font-size:24px;
+}
+}
+/* profile page */
+
+.profile-page{
+margin:20px;
+}
+
+.cover-photo{
+height:220px;
+background:linear-gradient(135deg,#0b5d3b,#1b8f5a);
+border-radius:25px;
+}
+
+.profile-card{
+background:white;
+margin-top:-80px;
+padding:20px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+position:relative;
+}
+
+.profile-img{
+width:140px;
+height:140px;
+border-radius:50%;
+border:6px solid white;
+object-fit:cover;
+margin-top:-90px;
+background:white;
+}
+
+.profile-card h2{
+margin-top:10px;
+color:#0b5d3b;
+font-size:28px;
+}
+
+.profile-card p{
+margin-top:10px;
+color:#555;
+font-size:17px;
+}
+
+.profile-info{
+display:flex;
+justify-content:space-around;
+margin-top:25px;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.info-box{
+background:#f4f7fb;
+padding:15px;
+border-radius:15px;
+width:100px;
+}
+
+.info-box h3{
+color:#0b5d3b;
+font-size:24px;
+}
+
+.info-box span{
+font-size:14px;
+color:#555;
+}
+
+.edit-btn{
+margin-top:25px;
+padding:12px 25px;
+border:none;
+background:#0b5d3b;
+color:white;
+font-size:16px;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.edit-btn:hover{
+background:#1b8f5a;
+}
+
+/* 3 dot menu */
+
+.menu-container{
+position:absolute;
+top:20px;
+left:20px;
+}
+
+.menu-btn{
+background:#0b5d3b;
+color:white;
+border:none;
+font-size:28px;
+width:50px;
+height:50px;
+border-radius:50%;
+cursor:pointer;
+}
+
+.menu-box{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+background:white;
+width:200px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+overflow:hidden;
+z-index:999;
+}
+
+.menu-box p{
+padding:15px;
+cursor:pointer;
+border-bottom:1px solid #eee;
+transition:0.3s;
+}
+
+.menu-box p:hover{
+background:#f4f7fb;
+}
+/* BUTTONS */
+
+.buttons button{
+width:20px%;
+padding:15px;
+border:none;
+border-radius:15px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+body {
+
+background-color: orange;
+
+}
+
+</style>
+</head >
+
+<body>
+
+<header>
+<h1>د افغانستان لنډه پیژندنه</h1>
+</header>
+
+
+<!-- PROFILE PAGE -->
+<div class="buttons" style="display: flex;justify-content: left; align-items: left; gap: 10px;">
+
+<a href="profile.html">
+<button class="follow" >
+>
+</button>
+</a>
+</div>
+
+<div class="profile-page">
+
+<div class="cover-photo"></div>
+
+<div class="profile-card">
+
+<img src="jan.png" class="profile-img">
+
+<h2>
+ښه راغلاست
+</h2>
+
+<p>افغانستان د آسیا په زړه کې پروت تاریخي او اسلامي هېواد دی.</p>
+
+
+
+
+
+<div class="profile-info">
+
+<div class="info-box">
+<h3>34</h3>
+<span>ولایتونه</span>
+</div>
+
+<div class="info-box">
+
+<h3>400+</h3>
+<span>ولسوالۍ</span>
+</div>
+
+<div class="info-box">
+<h3>2026</h3>
+<span>نسخه</span>
+</div>
+
+
+</div>
+<button class="edit-btn" onclick="document.getElementById('searchInput').scrollIntoView({ behavior: 'smooth' })">
+<h1>ولایتونه او ولسوالۍ</h1>
+</button>
+
+<div class="menu-container" >
+
+
+</div>
+
+
+
+<!-- 3 DOT MENU -->
+
+<div class="menu-container">
+
+
+<button class="menu-btn"
+onclick="toggleMenu()">
+⋮
+</button>
+
+<div class="menu-box" id="menuBox">
+
+<p onclick="showMessage('د افغانستان معلومات')">
+معلومات
+</p>
+
+
+<p onclick="showMessage('لارښود: Mohammad yasin')">
+لارښود
+</p>
+
+<p onclick="showMessage('Developer: Zarwali walizada')">
+Developer
+</p>
+
+<p onclick="showMessage('Version 2026')">
+Version
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="ولایت ولټوئ...">
+</div>
+
+<div class="grid" id="provinceGrid"></div>
+
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="provinceTitle"></h2>
+<div id="districtContainer"></div>
+</div>
+</div>
+
+<footer>
+<p>افغانستان ټول ولایتونه او ولسوالۍ</p>
+</footer>
+
+<script>
+
+const provinces = [
+
+
+{
+name:"د افغانستان په اړه عمومي معلومات:",
+info:"",
+districts:[
+{name:"۱: افغانستان ۳۴ ولایتونه لري.",info:""},
+{name:"۲: افغانستان ۴۰۰ ولسوالۍ لري.",info:""},
+{name:"۳: افغانستان کابو ۳۸۰۰۰ کلي لري.",info:""},
+{name:"۴: افغانستان ۳۸ میلیونه نفوس لري.",info:""},
+{name:"۵: افغانستان ۶۵۲۰۰۰ کیلومتره مربع مساحت لري.",info:""},
+{name:"۶: افغانستان ۳۳ ژبې او ویونکي لري.",info:""},
+{name:"۷: افغانستان پنځه زره کلن تاریخ لري.",info:""},
+{name:"۸: افغانستان دوه رسمي ژبې لري، دري او پښتو.",info:""},
+{name:"۹: افغانستان ۵۸۰۰ کیلومتره ګډه پوله لري.",info:""},
+{name:"۱۰: افغانستان ۹۹،۶ سلنه مسلمانان لري.",info:""},
+{name:"۱۱: افغانستان لومړنی مسلمان هیواد دی چې اسلام ته وفادار پاتې شوی دی.",info:""},
+{name:"۱۲: د لومړي ځل لپاره یو افغان سپوږمۍ ته قرآن کریم انتقال کړی.",info:""},
+{name:"۱۳: افغانستان د نړۍ تر ټولو انقلابي هېواد دی",info:""},
+{name:"۱۴: افغانستان څلور منظم فصلونه لري.",info:""},
+{name:"۱۵: په افغانستان کې ۳۴ ولایتونه او ۴۰۰ولسوالۍ شته.",info:""},
+
+]
+},
+
+
+{
+name:"کابل",
+info:"کابل د افغانستان پلازمېنه او لوی سیاسي او اقتصادي مرکز دی.او ۱۵ ولسوالۍ لري.",
+districts:[
+{name:"ولسوالیو معلومات",info:""},
+{name:"کابل ښار (مرکزي ناحیې)",info:"د افغانستان پلازمېنه او مرکزي ښار دی."},
+{name:"پغمان",info:"د تفریح او ښکلي طبیعت سیمه ده."},
+{name:"بګرامي",info:"صنعتي او کرنیزه ولسوالي ده."},
+{name:"ده سبز",info:"پراخه کرنیزه سیمه ده."},
+{name:"شکردره",info:"شنه او کرنیزه ولسوالي ده."},
+{name:"استالف",info:"غرنیزه او تاریخي سیمه ده."},
+{name:"موسهي",info:"سویلي کرنیزه ولسوالي ده."},
+{name:"چهار اسیاب",info:"د کابل سویلي مهمه ولسوالي ده."},
+{name:"خاک جبار",info:"غرنیزه ولسوالي ده."},
+{name:"سروبي",info:"د اوبو بند او غرنیزه سیمه لري."},
+{name:"قره باغ",info:"غرنیزه او کرنیزه سیمه ده."},
+{name:"ګلدره",info:"سړه او غرنیزه سیمه ده."},
+{name:"فرزه",info:"کرنیزه ولسوالي ده."},
+{name:"کلکان",info:"تاریخي او غرنیزه سیمه ده."},
+{name:"میربچه کوټ",info:"کرنیزه او مرکزي ولسوالي ده."}
+]
+},
+
+{
+name:"ننګرهار",
+info:"ننګرهار د افغانستان ختیځ مهم ولایت دی.او ۲۲ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"جلال آباد",info:"د ولایت مرکز ښار دی."},
+{name:"سره رود",info:"کرنیزه ولسوالي ده."},
+{name:"بټي کوټ",info:"مهمه تجارتي ولسوالي ده."},
+{name:"کامې",info:"زراعتي سیمه ده."},
+{name:"کوز کونړ",info:"سرحدي ولسوالي ده."},
+{name:"ګوشته",info:"کرنیزه ولسوالي ده."},
+{name:"لعلپور",info:"سرحدي سیمه ده."},
+{name:"مهمند دره",info:"غرنیزه ولسوالي ده."},
+{name:"شېرزاد",info:"تاریخي ولسوالي ده."},
+{name:"حصارک",info:"غرنیزه سیمه ده."},
+{name:"خوګیاڼي",info:"تاریخي ولسوالي ده."},
+{name:"پچیراګام",info:"غرنیزه ولسوالي ده."},
+{name:"اچین",info:"سرحدي غرنیزه ولسوالي ده."},
+{name:"سپین غر",info:"لوړ غرني سیمه ده."},
+{name:"نازیان",info:"سرحدي ولسوالي ده."},
+{name:"ده بالا",info:"غرنیزه سیمه ده."},
+{name:"چپرهار",info:"کرنیزه ولسوالي ده."},
+{name:"دره نور",info:"شنه دره ده."},
+{name:"رودات",info:"کرنیزه ولسوالي ده."},
+{name:"هسکه مېنه",info:"غرنیزه سیمه ده."},
+{name:"کوټ",info:"کرنیزه ولسوالي ده."},
+{name:"بهسود",info:"سرحدي او کرنیزه سیمه ده."}
+]
+},
+{
+name:"کندهار",
+info:"کندهار تاریخي او جنوبي ولایت دی.او ۱۷ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"کندهار ښار",info:"د ولایت مرکز او لوی ښار دی."},
+{name:"دامان",info:"کرنیزه ولسوالي ده."},
+{name:"ارغنداب",info:"د انارو باغونو لپاره مشهوره ولسوالي ده."},
+{name:"پنجوایي",info:"کرنیزه او تاریخي ولسوالي ده."},
+{name:"میوند",info:"تاریخي او کرنیزه سیمه ده."},
+{name:"ژړۍ",info:"کرنیزه ولسوالي ده."},
+{name:"سپین بولدک",info:"سرحدي او تجارتي ولسوالي ده."},
+{name:"تخته‌پل",info:"مهمه کرنیزه ولسوالي ده."},
+{name:"ارغستان",info:"غرنیزه سیمه ده."},
+{name:"شاه ولي کوټ",info:"غرنیزه ولسوالي ده."},
+{name:"خاکریز",info:"غرنیزه او وچ اقلیم سیمه ده."},
+{name:"میانشین",info:"لرې پرته او غرنیزه سیمه ده."},
+{name:"غورک",info:"غرنیزه ولسوالي ده."},
+{name:"ریګستان",info:"دښتې او ګرمه سیمه ده."},
+{name:"شورابک",info:"سرحدي ولسوالي ده."},
+{name:"معروف",info:"کرنیزه او سرحدي سیمه ده."},
+{name:"شین ډنډه",info:"کرنیزه ولسوالي ده."}
+]
+},
+{
+name:"هرات",
+info:"هرات د افغانستان لویدیځ لوی او تاریخي ولایت دی.او ۱۵ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"هرات ښار",info:"د ولایت مرکز او لوی ښار دی."},
+{name:"انجیل",info:"کرنیزه او ښاري شاوخوا سیمه ده."},
+{name:"غوریان",info:"سرحدي او کرنیزه ولسوالي ده."},
+{name:"کرخ",info:"کرنیزه او تاریخي ولسوالي ده."},
+{name:"او بې (Obe)",info:"غرنیزه ولسوالي ده."},
+{name:"چشت شریف",info:"غرنیزه او تاریخي سیمه ده."},
+{name:"کهسان",info:"سرحدي ولسوالي ده."},
+{name:"کشک (رباط سنګي)",info:"سرحدي او تجارتي سیمه ده."},
+{name:"کشک کهنه",info:"کرنیزه ولسوالي ده."},
+{name:"ګذره",info:"د هرات ښار ته نږدې ولسوالي ده."},
+{name:"پښتون زرغون",info:"کرنیزه ولسوالي ده."},
+{name:"ګلران",info:"دښتې او سرحدي سیمه ده."},
+{name:"شیندند",info:"لویه او مهمه ولسوالي ده."},
+{name:"ادرسکن",info:"کرنیزه ولسوالي ده."},
+{name:"زنده جان",info:"کرنیزه او سرحدي سیمه ده."}
+]
+},
+
+{
+name:"بلخ",
+info:"بلخ د افغانستان مهم شمالي او تاریخي ولایت دی.او ۱۴ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"مزار شریف",info:"د ولایت مرکز او لوی ښار دی."},
+{name:"شولګره",info:"کرنیزه ولسوالي ده."},
+{name:"دهدادي",info:"صنعتي او کرنیزه سیمه ده."},
+{name:"چارکنت",info:"غرنیزه ولسوالي ده."},
+{name:"چمتال",info:"کرنیزه ولسوالي ده."},
+{name:"بلخ",info:"تاریخي سیمه ده."},
+{name:"زاري",info:"کرنیزه ولسوالي ده."},
+{name:"کلدار",info:"سرحدي ولسوالي ده."},
+{name:"مارمل",info:"کرنیزه ولسوالي ده."},
+{name:"کشنده",info:"کرنیزه ولسوالي ده."},
+{name:"دولت آباد",info:"کرنیزه ولسوالي ده."},
+{name:"خلم",info:"مهمه کرنیزه ولسوالي ده."},
+{name:"نهر شاهي",info:"د مزار شاوخوا ولسوالي ده."},
+{name:"کهنه قلعه",info:"کلیوالي سیمه ده."}
+]
+},
+
+{
+name:"بدخشان",
+info:"بدخشان د افغانستان غرنی او شمال ختیځ ولایت دی.او ۲۸ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"فیض آباد",info:"د ولایت مرکز ښار دی."},
+{name:"اشکاشم",info:"سرحدي ولسوالي ده."},
+{name:"واخان",info:"ډېر لرې غرنیه سیمه ده."},
+{name:"بهارک",info:"کرنیزه ولسوالي ده."},
+{name:"ارګو",info:"غرنیزه سیمه ده."},
+{name:"شغنان",info:"سرحدي ولسوالي ده."},
+{name:"درایم",info:"کرنیزه ولسوالي ده."},
+{name:"کشم",info:"کرنیزه سیمه ده."},
+{name:"تګاب",info:"غرنیزه ولسوالي ده."},
+{name:"یاوان",info:"غرنیزه سیمه ده."},
+{name:"جرم",info:"مهمه ولسوالي ده."},
+{name:"زیباک",info:"غرنیزه ولسوالي ده."},
+{name:"شکی",info:"سرحدي ولسوالي ده."},
+{name:"راغستان",info:"غرنیزه ولسوالي ده."},
+{name:"وردوج",info:"کرنیزه ولسوالي ده."},
+{name:"خاش",info:"غرنیزه ولسوالي ده."},
+{name:"نسی",info:"غرنیزه سیمه ده."},
+{name:"کوف آب",info:"سرحدي ولسوالي ده."},
+{name:"شهر بزرګ",info:"کرنیزه ولسوالي ده."},
+{name:"مایمی",info:"کرنیزه سیمه ده."},
+{name:"شورابک",info:"غرنیزه سیمه ده."},
+{name:"رستاق",info:"سرحدي سیمه ده."},
+{name:"ایشکاشم بالا",info:"غرنیزه سیمه ده."},
+{name:"ایشکاشم پایین",info:"سرحدي سیمه ده."},
+{name:"درواز بالا",info:"غرنیزه سیمه ده."},
+{name:"درواز پایین",info:"کرنیزه سیمه ده."},
+{name:"کوهستان",info:"غرنیزه سیمه ده."},
+{name:"فیض آباد اطراف",info:"د مرکز شاوخوا سیمه ده."}
+]
+},
+
+{
+name:"بامیان",
+info:"بامیان د افغانستان مرکزي غرنی او تاریخي ولایت دی.او ۷ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"بامیان",info:"د ولایت مرکز ښار دی."},
+{name:"یکاولنګ ۱",info:"لوړ غرنی او کرنیزه سیمه ده."},
+{name:"شبیر",info:"غرنیزه او پراخه سیمه ده."},
+{name:"پنجاب",info:"کرنیزه او غرنیزه ولسوالي ده."},
+{name:"ورس",info:"غرنیزه ولسوالي ده."},
+{name:"سیغان",info:"غرنیزه سیمه ده."},
+{name:"کهمرد",info:"کرنیزه او غرنیزه ولسوالي ده."}
+]
+},
+{
+name:"هلمند",
+info:"هلمند د افغانستان لوی جنوبي ولایت دی.او۱۵ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"لښکرګاه",info:"د ولایت مرکز ښار دی."},
+{name:"ګرشک",info:"مهمه کرنیزه ولسوالي ده."},
+{name:"نادعلي",info:"کرنیزه ولسوالي ده."},
+{name:"سنګین",info:"غرنیزه او تاریخي سیمه ده."},
+{name:"موسی قلعه",info:"غرنیزه ولسوالي ده."},
+{name:"خانشین",info:"لرې پرتې ولسوالي ده."},
+{name:"باغران",info:"کرنیزه او غرنیزه سیمه ده."},
+{name:"کجکي",info:"د بند او اوبو سیمه ده."},
+{name:"نهرسراج",info:"کرنیزه ولسوالي ده."},
+{name:"واشېر",info:"غرنیزه ولسوالي ده."},
+{name:"دیشو",info:"سرحدي ولسوالي ده."},
+{name:"نوزاد",info:"لرې او غرنیزه سیمه ده."},
+{name:"مارجه",info:"مهمه کرنیزه ولسوالي ده."},
+{name:"ګرمسېر",info:"ګرمه او دښتې سیمه ده."},
+{name:"سنگین",info:"غرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"خوست",
+info:"خوست د افغانستان ختیځ سرحدي ولایت دی.او۱۳ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"خوست ښار",info:"د ولایت مرکز ښار دی."},
+{name:"سپېره",info:"کرنیزه ولسوالي ده."},
+{name:"صبري",info:"سرحدي ولسوالي ده."},
+{name:"ځاځي میدان",info:"غرنیزه سیمه ده."},
+{name:"نادرشاه کوټ",info:"کرنیزه ولسوالي ده."},
+{name:"مندوزي",info:"سرحدي ولسوالي ده."},
+{name:"ګربز",info:"غرنیزه ولسوالي ده."},
+{name:"تڼي",info:"کرنیزه سیمه ده."},
+{name:"قلندر",info:"کرنیزه ولسوالي ده."},
+{name:"موسی خېل",info:"غرنیزه ولسوالي ده."},
+{name:"باعز",info:"کلیوالي سیمه ده."},
+{name:"شمل",info:"کرنیزه ولسوالي ده."},
+{name:"باک",info:"سرحدي/غرنیزه سیمه ده."}
+]
+},
+
+{
+name:"لغمان",
+info:"لغمان شنه او کرنیز ولایت دی.او۶ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"مهترلام",info:"د ولایت مرکز ښار دی."},
+{name:"قرغه یی",info:"کرنیزه ولسوالي ده."},
+{name:"علیشنګ",info:"شنه او غرنیزه سیمه ده."},
+{name:"علیګار",info:"کرنیزه ولسوالي ده."},
+{name:"بادپښ",info:"غرنیزه سیمه ده."},
+{name:"قرغیو",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"کنړ",
+info:"کنړ غرنی او ختیځ ولایت دی.او۱۵ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"اسعد آباد",info:"د ولایت مرکز ښار دی."},
+{name:"اسمار",info:"غرنیزه ولسوالي ده."},
+{name:"دانګام",info:"غرنیزه سیمه ده."},
+{name:"شیګل",info:"کرنیزه ولسوالي ده."},
+{name:"سرکانو",info:"غرنیزه ولسوالي ده."},
+{name:"وټه پور",info:"غرنیزه سیمه ده."},
+{name:"نرنګ",info:"کرنیزه ولسوالي ده."},
+{name:"چپه دره",info:"غرنیزه ولسوالي ده."},
+{name:"نورګل",info:"مهمه ولسوالي ده."},
+{name:"خاص کنړ",info:"غرنیزه سیمه ده."},
+{name:"مروره",info:"کرنیزه ولسوالي ده."},
+{name:"ځاځی دره",info:"غرنیزه ولسوالي ده."},
+{name:"ناړۍ",info:"غرنیزه سیمه ده."},
+{name:"سرکاڼو بالا",info:"غرنیزه سیمه ده."},
+{name:"سرکاڼو پایین",info:"کرنیزه سیمه ده."}
+]
+},
+
+{
+name:"نورستان",
+info:"نورستان د افغانستان غرنی او شین ځنګلي ولایت دی.او۸ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"پارون",info:"د ولایت مرکز ښار دی."},
+{name:"کامدیش",info:"غرنیزه ولسوالي ده."},
+{name:"واما",info:"کرنیزه او غرنیزه سیمه ده."},
+{name:"نورګرام",info:"غرنیزه ولسوالي ده."},
+{name:"برګ مټال",info:"سرحدي او غرنیزه سیمه ده."},
+{name:"دو آب",info:"کرنیزه ولسوالي ده."},
+{name:"نورستان بالا",info:"لوړه غرنیزه سیمه ده."},
+{name:"نورستان پایین",info:"کرنیزه او دره‌يي سیمه ده."}
+]
+},
+
+{
+name:"پکتیا",
+info:"پکتیا د افغانستان جنوب ختیځ غرنی ولایت دی.او۱۴ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"ګردېز",info:"د ولایت مرکز ښار دی."},
+{name:"زرمت",info:"لویه کرنیزه ولسوالي ده."},
+{name:"څمکني",info:"سرحدي ولسوالي ده."},
+{name:"ګیاني",info:"غرنیزه سیمه ده."},
+{name:"لجه منګل",info:"کرنیزه او غرنیزه ولسوالي ده."},
+{name:"احمدخېل",info:"مهمه ولسوالي ده."},
+{name:"شواک",info:"غرنیزه سیمه ده."},
+{name:"سیدکرم",info:"سرحدي ولسوالي ده."},
+{name:"آریوب ځاځي",info:"غرنیزه ولسوالي ده."},
+{name:"ډنډپټان",info:"سرحدي ولسوالي ده."},
+{name:"وزې ځدراڼ",info:"غرنیزه ولسوالي ده."},
+{name:"جاني خېل",info:"کرنیزه ولسوالي ده."},
+{name:"ارګون",info:"غرنیزه سیمه ده."},
+{name:"پټان",info:"سرحدي ولسوالي ده."}
+]
+},
+
+{
+name:"پکتیکا",
+info:"پکتیکا د افغانستان جنوب ختیځ غرنی ولایت دی.او۱۹ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"ښرنه",info:"د ولایت مرکز ښار دی."},
+{name:"برمل",info:"سرحدي ولسوالي ده."},
+{name:"اورګون",info:"لویه او مهمه ولسوالي ده."},
+{name:"ګیان",info:"غرنیزه سیمه ده."},
+{name:"سرحوضه",info:"سرحدي ولسوالي ده."},
+{name:"مټاخان",info:"کرنیزه ولسوالي ده."},
+{name:"ټروه",info:"غرنیزه سیمه ده."},
+{name:"زیړوک",info:"غرنیزه ولسوالي ده."},
+{name:"گیومل",info:"غرنیزه سیمه ده."},
+{name:"دایچوپان",info:"کرنیزه ولسوالي ده."},
+{name:"نکه",info:"غرنیزه ولسوالي ده."},
+{name:"وړمې",info:"کرنیزه سیمه ده."},
+{name:"جاني خېل",info:"سرحدي ولسوالي ده."},
+{name:"ډنډپټان",info:"سرحدي ولسوالي ده."},
+{name:"زرغون ښار",info:"کرنیزه ولسوالي ده."},
+{name:"بند خیل",info:"غرنیزه سیمه ده."},
+{name:"کاکړ",info:"سرحدي ولسوالي ده."},
+{name:"پټان",info:"سرحدي ولسوالي ده."},
+{name:"ارګون",info:"غرنیزه سیمه ده."}
+]
+},
+
+{
+name:"لوګر",
+info:"لوګر د افغانستان مرکزي کرنیز ولایت دی.او۸ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"پل علم",info:"د ولایت مرکز ښار دی."},
+{name:"محمد آغه",info:"کرنیزه ولسوالي ده."},
+{name:"برکي برک",info:"غرنیزه ولسوالي ده."},
+{name:"خروار",info:"کرنیزه ولسوالي ده."},
+{name:"څرخ",info:"غرنیزه سیمه ده."},
+{name:"ازره",info:"غرنیزه او لرې پرتې ولسوالي ده."},
+{name:"څاه اب",info:"کرنیزه ولسوالي ده."},
+{name:"برمل",info:"کرنیزه/سرحدي سیمه ده."}
+]
+},
+
+{
+name:"غزني",
+info:"غزني د افغانستان تاریخي او مرکزي ولایت دی.او۲۰ ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"غزني ښار",info:"د ولایت مرکز ښار دی."},
+{name:"اندړ",info:"لویه کرنیزه ولسوالي ده."},
+{name:"قره‌باغ",info:"کرنیزه ولسوالي ده."},
+{name:"جاغوري",info:"پرمختللې غرنیزه ولسوالي ده."},
+{name:"مالستان",info:"غرنیزه ولسوالي ده."},
+{name:"گیرو",info:"کرنیزه ولسوالي ده."},
+{name:"ناور",info:"غرنیزه سیمه ده."},
+{name:"زنخان",info:"کرنیزه ولسوالي ده."},
+{name:"مقر",info:"کرنیزه ولسوالي ده."},
+{name:"ده‌یک",info:"غرنیزه سیمه ده."},
+{name:"اب بند",info:"کرنیزه ولسوالي ده."},
+{name:"گیلان",info:"سرحدي ولسوالي ده."},
+{name:"اجرستان",info:"غرنیزه سیمه ده."},
+{name:"خواجه عمري",info:"کرنیزه ولسوالي ده."},
+{name:"شهباز",info:"کرنیزه سیمه ده."},
+{name:"جغتو",info:"غرنیزه ولسوالي ده."},
+{name:"خوګیاڼي",info:"غرنیزه ولسوالي ده."},
+{name:"بغنر",info:"کرنیزه سیمه ده."},
+{name:"زنه‌خان بالا",info:"غرنیزه سیمه ده."},
+{name:"زنه‌خان پایین",info:"کرنیزه سیمه ده."}
+]
+},
+
+{
+name:"پروان",
+info:"پروان د افغانستان شمال ته پروت غرنی او تاریخي ولایت دی.او۱۰ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"چاریکار",info:"د ولایت مرکز ښار دی."},
+{name:"بگرام",info:"تاریخي او مهمه سیمه ده."},
+{name:"سیاه ګرد",info:"غرنیزه ولسوالي ده."},
+{name:"سالنګ",info:"مهمه غرنیزه او لاره‌ییزه سیمه ده."},
+{name:"شیخ علی",info:"غرنیزه ولسوالي ده."},
+{name:"جبل سراج",info:"کرنیزه ولسوالي ده."},
+{name:"سرخ پارسا",info:"کرنیزه او غرنیزه سیمه ده."},
+{name:"کوه صافي",info:"غرنیزه ولسوالي ده."},
+{name:"شیبکوه",info:"غرنیزه سیمه ده."},
+{name:"غوربند",info:"دره‌ییزه او کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"کاپیسا",
+info:"کاپیسا د افغانستان شمال ختیځ ته پروت کوچنی او غرنی ولایت دی.او۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"محمود راقي",info:"د ولایت مرکز ښار دی."},
+{name:"تګاب",info:"کرنیزه او غرنیزه ولسوالي ده."},
+{name:"اله سای",info:"غرنیزه ولسوالي ده."},
+{name:"نجراب",info:"غرنیزه او شنه سیمه ده."},
+{name:"حصه اول کوهستان",info:"غرنیزه ولسوالي ده."},
+{name:"حصه دوم کوهستان",info:"غرنیزه ولسوالي ده."},
+{name:"گلبهار",info:"کرنیزه او د سیند غاړې سیمه ده."}
+]
+},
+
+{
+name:"پنجشیر",
+info:"پنجشیر د افغانستان شمال ختیځ غرنی او دره‌ییز ولایت دی.او۸ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"بازارک",info:"د ولایت مرکز ښار دی."},
+{name:"رخه",info:"لویه دره او غرنیزه ولسوالي ده."},
+{name:"عنابه",info:"شنه او کرنیزه ولسوالي ده."},
+{name:"پریان",info:"غرنیزه ولسوالي ده."},
+{name:"پشتکوه",info:"غرنیزه سیمه ده."},
+{name:"حصه اول",info:"دره‌ییزه ولسوالي ده."},
+{name:"حصه دوم",info:"غرنیزه ولسوالي ده."},
+{name:"دره",info:"اصلي دره‌ییزه سیمه ده."}
+]
+},
+
+{
+name:"تخار",
+info:"تخار د افغانستان شمال ختیځ حاصلخېز ولایت دی.او۱۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"تالقان",info:"د ولایت مرکز ښار دی."},
+{name:"اشکمش",info:"کرنیزه ولسوالي ده."},
+{name:"خواجه بهاوالدین",info:"سرحدي ولسوالي ده."},
+{name:"چاه آب",info:"کرنیزه ولسوالي ده."},
+{name:"درقد",info:"سرحدي ولسوالي ده."},
+{name:"فرخار",info:"کرنیزه ولسوالي ده."},
+{name:"کلفګان",info:"غرنیزه ولسوالي ده."},
+{name:"ورسج",info:"غرنیزه سیمه ده."},
+{name:"بنګي",info:"کرنیزه ولسوالي ده."},
+{name:"خُرم و سارباغ",info:"کرنیزه ولسوالي ده."},
+{name:"روستاق",info:"کرنیزه ولسوالي ده."},
+{name:"بهارک",info:"کرنیزه ولسوالي ده."},
+{name:"هزاره‌باغ",info:"کرنیزه ولسوالي ده."},
+{name:"دشت قلعه",info:"سرحدي ولسوالي ده."},
+{name:"نمک آب",info:"کرنیزه ولسوالي ده."},
+{name:"قلعه زال",info:"سرحدي ولسوالي ده."},
+{name:"خواجه غار",info:"غرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"کندز",
+info:"کندز د افغانستان شمال مهم تجارتي او کرنیز ولایت دی.او۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"کندز ښار",info:"د ولایت مرکز ښار دی."},
+{name:"امام صاحب",info:"سرحدي او مهمه ولسوالي ده."},
+{name:"خان آباد",info:"کرنیزه ولسوالي ده."},
+{name:"چاردره",info:"کرنیزه ولسوالي ده."},
+{name:"علي آباد",info:"کرنیزه ولسوالي ده."},
+{name:"دشت ارچي",info:"کرنیزه او پراخه سیمه ده."},
+{name:"قلعه زال",info:"سرحدي ولسوالي ده."}
+]
+},
+
+{
+name:"بغلان",
+info:"بغلان د افغانستان شمالي مهم صنعتي او کرنیز ولایت دی.او۱۵ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"پلخمري",info:"د ولایت مرکز ښار دی."},
+{name:"دوشي",info:"لویه غرنیزه ولسوالي ده."},
+{name:"بغلان جدید",info:"کرنیزه او صنعتي سیمه ده."},
+{name:"نهرین",info:"کرنیزه ولسوالي ده."},
+{name:"ده صلاح",info:"کرنیزه ولسوالي ده."},
+{name:"جلګه",info:"غرنیزه ولسوالي ده."},
+{name:"تاله و برفک",info:"غرنیزه ولسوالي ده."},
+{name:"خنجان",info:"غرنیزه ولسوالي ده."},
+{name:"پنجو",info:"کرنیزه ولسوالي ده."},
+{name:"دهنه غوري",info:"غرنیزه ولسوالي ده."},
+{name:"بورکه",info:"کرنیزه ولسوالي ده."},
+{name:"سرخ کوتل",info:"غرنیزه سیمه ده."},
+{name:"کلګې",info:"کرنیزه ولسوالي ده."},
+{name:"آهنګران",info:"کرنیزه ولسوالي ده."},
+{name:"ګذرگاه نور",info:"غرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"فاریاب",
+info:"فاریاب د افغانستان شمال لویدیځ مهم کرنیز او مالدارۍ ولایت دی.او۱۴ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"میمنه",info:"د ولایت مرکز ښار دی."},
+{name:"قیصار",info:"لویه کرنیزه ولسوالي ده."},
+{name:"اندخوی",info:"تجارتي او سرحدي ولسوالي ده."},
+{name:"دولت آباد",info:"کرنیزه ولسوالي ده."},
+{name:"شیرین تګاب",info:"غرنیزه ولسوالي ده."},
+{name:"پشتون کوت",info:"کرنیزه ولسوالي ده."},
+{name:"المار",info:"کرنیزه ولسوالي ده."},
+{name:"گرزیوان",info:"غرنیزه ولسوالي ده."},
+{name:"بلچراغ",info:"کرنیزه ولسوالي ده."},
+{name:"خواجه سبزپوش",info:"کرنیزه ولسوالي ده."},
+{name:"قرمقول",info:"سرحدي ولسوالي ده."},
+{name:"قرغان",info:"کرنیزه ولسوالي ده."},
+{name:"قوش تپه",info:"کرنیزه ولسوالي ده."},
+{name:"کوهستان",info:"غرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"غور",
+info:"غور د افغانستان مرکزي غرنی او تاریخي ولایت دی.او۱۰ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"فیروزکوه",info:"د ولایت مرکز ښار دی."},
+{name:"تیوره",info:"کرنیزه او غرنیزه ولسوالي ده."},
+{name:"لعل و سرجنگل",info:"غرنیزه ولسوالي ده."},
+{name:"دولت یار",info:"کرنیزه ولسوالي ده."},
+{name:"شهرک",info:"غرنیزه سیمه ده."},
+{name:"پسابند",info:"کرنیزه ولسوالي ده."},
+{name:"ساغر",info:"غرنیزه ولسوالي ده."},
+{name:"چهارسده",info:"کرنیزه ولسوالي ده."},
+{name:"چغچران",info:"لویه سیمه/پخوانی نوم کارېږي."},
+{name:"چشمه سرده",info:"غرنیزه سیمه ده."}
+]
+},
+
+{
+name:"فراه",
+info:"فراه د افغانستان لوېدیځ پراخ او نیمه صحرايي ولایت دی.او۱۱ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"فراه ښار",info:"د ولایت مرکز ښار دی."},
+{name:"پشت کوه",info:"غرنیزه ولسوالي ده."},
+{name:"لاش و جوین",info:"سرحدي او کرنیزه ولسوالي ده."},
+{name:"بالا بلوک",info:"لویه کرنیزه ولسوالي ده."},
+{name:"پرچمن",info:"کرنیزه ولسوالي ده."},
+{name:"قلعه کاه",info:"سرحدي ولسوالي ده."},
+{name:"شیبکوه",info:"غرنیزه ولسوالي ده."},
+{name:"بکواه",info:"کرنیزه ولسوالي ده."},
+{name:"اناردره",info:"غرنیزه ولسوالي ده."},
+{name:"خاک سفید",info:"کرنیزه ولسوالي ده."},
+{name:"کوهستان",info:"غرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"نیمروز",
+info:"نیمروز د افغانستان سوېل لوېدیځ سرحدي ولایت دی.او۵ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"زرنج",info:"د ولایت مرکز ښار دی."},
+{name:"چخانسور",info:"لویه سرحدي ولسوالي ده."},
+{name:"کنگ",info:"کرنیزه ولسوالي ده."},
+{name:"چاربرجک",info:"کرنیزه او سرحدي ولسوالي ده."},
+{name:"جغانسور",info:"سرحدي ولسوالي ده."}
+]
+},
+
+{
+name:"زابل",
+info:"زابل د افغانستان سوېلي غرنی او نیمه وچ ولایت دی.او۱۱ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"قلات",info:"د ولایت مرکز ښار دی."},
+{name:"شاه جوی",info:"کرنیزه ولسوالي ده."},
+{name:"شملزو",info:"غرنیزه ولسوالي ده."},
+{name:"اتغر",info:"غرنیزه سیمه ده."},
+{name:"میزان",info:"کرنیزه ولسوالي ده."},
+{name:"شهر صفا",info:"کرنیزه ولسوالي ده."},
+{name:"ارغنداب",info:"کرنیزه ولسوالي ده."},
+{name:"تورن",info:"غرنیزه ولسوالي ده."},
+{name:"نوبهار",info:"سرحدي او غرنیزه ولسوالي ده."},
+{name:"دای چوپان",info:"غرنیزه ولسوالي ده."},
+{name:"سیوری",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"ارزګان",
+info:"ارزګان د افغانستان سوېل-مرکزي غرنی ولایت دی.او۶ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"ترینکوټ",info:"د ولایت مرکز ښار دی."},
+{name:"چوره",info:"غرنیزه ولسوالي ده."},
+{name:"دهراوود",info:"کرنیزه ولسوالي ده."},
+{name:"خاص ارزګان",info:"غرنیزه ولسوالي ده."},
+{name:"شاهید هسار",info:"غرنیزه سیمه ده."},
+{name:"ګیزاب",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"میدان وردګ",
+info:"میدان وردګ د افغانستان مرکزي غرنی ولایت دی.او۹ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"میدان ښار",info:"د ولایت مرکز ښار دی."},
+{name:"چک",info:"کرنیزه او شنه ولسوالي ده."},
+{name:"جلریز",info:"غرنیزه ولسوالي ده."},
+{name:"دایمیرداد",info:"کرنیزه ولسوالي ده."},
+{name:"نرخ",info:"غرنیزه ولسوالي ده."},
+{name:"سیدآباد",info:"کرنیزه ولسوالي ده."},
+{name:"جغتو",info:"غرنیزه ولسوالي ده."},
+{name:"حصه اول بهسود",info:"غرنیزه ولسوالي ده."},
+{name:"جلګه",info:"غرنیزه سیمه ده."}
+]
+},
+
+{
+name:"سمنګان",
+info:"سمنګان د افغانستان شمالي غرنی او تاریخي ولایت دی.او۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"ایبک",info:"د ولایت مرکز ښار دی."},
+{name:"حضرت سلطان",info:"تاریخي او غرنی ولسوالي ده."},
+{name:"دره صوف بالا",info:"معدني او غرنی ولسوالي ده."},
+{name:"دره صوف پایین",info:"کرنیزه او غرنیزه ولسوالي ده."},
+{name:"روی دوآب",info:"کرنیزه ولسوالي ده."},
+{name:"خلم",info:"کرنیزه ولسوالي ده."},
+{name:"فیروز نخچیر",info:"غرنیزه سیمه ده."}
+]
+},
+
+{
+name:"سرپل",
+info:"سرپل د افغانستان شمالي نیمه غرنی ولایت دی.او۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"سرپل ښار",info:"د ولایت مرکز ښار دی."},
+{name:"سوزمه قلعه",info:"کرنیزه ولسوالي ده."},
+{name:"صیاد",info:"غرنیزه ولسوالي ده."},
+{name:"سانچارک",info:"غرنیزه ولسوالي ده."},
+{name:"بلخاب",info:"لویه غرنیزه ولسوالي ده."},
+{name:"کوهستانات",info:"غرنیزه سیمه ده."},
+{name:"گوسفندي",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"جوزجان",
+info:"جوزجان د افغانستان شمالي مهم کرنیز او د ګازو سرچینو لرونکی ولایت دی.او۱۱ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"شبرغان",info:"د ولایت مرکز ښار دی."},
+{name:"آقچه",info:"لویه تجارتي ولسوالي ده."},
+{name:"منګجک",info:"کرنیزه ولسوالي ده."},
+{name:"خانقاه",info:"کرنیزه ولسوالي ده."},
+{name:"قرقین",info:"سرحدي ولسوالي ده."},
+{name:"فیض آباد",info:"کرنیزه ولسوالي ده."},
+{name:"خواجه دوکوه",info:"غرنیزه ولسوالي ده."},
+{name:"درزاب",info:"غرنیزه ولسوالي ده."},
+{name:"قوش تپه",info:"کرنیزه ولسوالي ده."},
+{name:"مردیان",info:"کرنیزه ولسوالي ده."},
+{name:"پښتون کوټ",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"بادغیس",
+info:"بادغیس د افغانستان شمال لوېدیځ نیمه وچ او باد لرونکی ولایت دی.او۷ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"قلعه نو",info:"د ولایت مرکز ښار دی."},
+{name:"بالامرغاب",info:"لویه غرنیزه او سرحدي ولسوالي ده."},
+{name:"مقر",info:"کرنیزه ولسوالي ده."},
+{name:"جوند",info:"غرنیزه ولسوالي ده."},
+{name:"قادس",info:"کرنیزه ولسوالي ده."},
+{name:"آبکمري",info:"سرحدي ولسوالي ده."},
+{name:"ایماق",info:"کرنیزه ولسوالي ده."}
+]
+},
+
+{
+name:"دایکندي",
+info:"دایکندي د افغانستان مرکزي غرنی ولایت دی.او۸ولسوالۍ لري.",
+districts:[
+   {name:"ولسوالیو معلومات",info:""},
+{name:"نیلي",info:"د ولایت مرکز ښار دی."},
+{name:"اشترلي",info:"غرنیزه ولسوالي ده."},
+{name:"خدیر",info:"کرنیزه ولسوالي ده."},
+{name:"کیتی",info:"غرنیزه ولسوالي ده."},
+{name:"میرامور",info:"کرنیزه ولسوالي ده."},
+{name:"پاتو",info:"غرنیزه ولسوالي ده."},
+{name:"کجران",info:"لرې پرتې غرنیزه ولسوالي ده."},
+{name:"شهرستان",info:"غرنیزه ولسوالي ده."}
+]
+}
+
+];
+
+function renderProvinces(data){
+
+const grid = document.getElementById("provinceGrid");
+grid.innerHTML = "";
+
+data.forEach((province)=>{
+
+// اصلي index پیدا کول
+const realIndex = provinces.indexOf(province);
+
+grid.innerHTML += `
+<div class="card" onclick="openProvince(${realIndex})">
+<h2>${province.name}</h2>
+<p>${province.info}</p>
+</div>
+`;
+
+});
+
+}
+renderProvinces(provinces);
+
+function openProvince(index){
+
+const province = provinces[index];
+
+document.getElementById("modal").style.display="flex";
+
+document.getElementById("provinceTitle").innerText=
+province.name + " ";
+
+let html = "";
+
+province.districts.forEach((district,i)=>{
+
+html += `
+<div class="district" onclick="toggleInfo(${index},${i})">
+<strong>${district.name}</strong>
+<div class="info" id="info-${index}-${i}">
+${district.info}
+</div>
+</div>
+`;
+
+});
+
+document.getElementById("districtContainer").innerHTML = html;
+
+}
+
+function toggleInfo(p,d){
+
+const box = document.getElementById(`info-${p}-${d}`);
+
+if(box.style.display === "block"){
+box.style.display = "none";
+}else{
+box.style.display = "block";
+}
+
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+// سرچ
+
+document.getElementById("searchInput")
+.addEventListener("keyup", function(){
+
+const value = this.value.toLowerCase();
+
+const filtered = provinces.filter(province =>
+province.name.toLowerCase().includes(value)
+);
+
+renderProvinces(filtered);
+
+
+
+
+
+});
+
+
+/* 3 dot system */
+
+function toggleMenu(){
+
+const menu =
+document.getElementById("menuBox");
+
+if(menu.style.display === "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+function showMessage(text){
+
+alert(text);
+
+}
+
+
+</script>
+
+</body>
+</html>

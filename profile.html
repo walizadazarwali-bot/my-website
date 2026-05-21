@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>افغانستان لنډه پیژندنه</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
+}
+
+body{
+background:#eef2f7;
+direction:rtl;
+display:flex;
+justify-content:center;
+}
+
+/* MOBILE APP */
+
+.app{
+width:100%;
+max-width:430px;
+height:100vh;
+background:white;
+overflow:hidden;
+position:relative;
+box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+
+/* HEADER */
+
+.header{
+height:220px;
+background:linear-gradient(135deg,#0b5d3b,#1b8f5a);
+border-bottom-left-radius:35px;
+border-bottom-right-radius:35px;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+}
+
+/* 3 DOT MENU */
+
+.menu-container{
+position:absolute;
+top:20px;
+left:20px;
+z-index:1000;
+}
+
+.menu-btn{
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:white;
+color:#0b5d3b;
+font-size:28px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+.menu-box{
+display:none;
+position:absolute;
+top:60px;
+left:0;
+width:200px;
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.menu-box p{
+padding:15px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+transition:0.3s;
+color:#333;
+}
+
+.menu-box p:hover{
+background:#f4f7fb;
+}
+
+.header h1{
+font-size:28px;
+margin-top:20px;
+}
+
+/* PROFILE IMAGE */
+
+.profile-img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:5px solid white;
+object-fit:cover;
+background:white;
+}
+
+/* CONTENT */
+
+.content{
+padding:20px;
+text-align:center;
+}
+
+/* STATS */
+
+.stats{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.box{
+flex:1;
+background:#f4f7fb;
+padding:15px;
+border-radius:18px;
+}
+
+.box h2{
+color:#0b5d3b;
+margin-bottom:5px;
+}
+
+.box span{
+font-size:14px;
+color:#555;
+}
+
+/* BUTTONS */
+
+.buttons{
+display:flex;
+gap:10px;
+margin-top:25px;
+}
+
+.buttons a{
+flex:1;
+text-decoration:none;
+}
+
+.buttons button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:15px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.follow{
+background:#0b5d3b;
+color:white;
+}
+
+.follow:hover{
+background:#15784f;
+}
+
+.message{
+background:#ff9800;
+color:white;
+}
+
+.message:hover{
+background:#ffb13d;
+}
+
+/* ABOUT */
+
+.about{
+margin-top:25px;
+background:#f4f7fb;
+padding:18px;
+border-radius:18px;
+text-align:right;
+}
+
+.about h3{
+color:#0b5d3b;
+margin-bottom:10px;
+}
+
+.about p{
+font-size:15px;
+line-height:2;
+color:#444;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+position:absolute;
+bottom:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:14px 0;
+border-top:1px solid #ddd;
+}
+
+.nav-item{
+text-align:center;
+font-size:14px;
+color:#555;
+cursor:pointer;
+transition:0.3s;
+}
+
+.nav-item:hover{
+color:#0b5d3b;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.header h1{
+font-size:22px;
+}
+
+.profile-img{
+width:100px;
+height:100px;
+}
+
+.buttons button{
+font-size:14px;
+padding:12px;
+}
+
+}
+
+
+
+body {
+
+background-color: orange;
+
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<!-- 3 DOT MENU -->
+
+<div class="menu-container">
+
+<button class="menu-btn" onclick="toggleMenu()">
+⋮
+</button>
+
+<div class="menu-box" id="menuBox" >
+
+<p onclick="showMessage('د افغانستان معلومات')">
+معلومات
+</p>
+
+<p onclick="showMessage('لارښود: Mohammad Yasin')">
+لارښود
+</p>
+
+<p onclick="showMessage('Developer: Zarwali Walizada')">
+Developer
+</p>
+
+<p onclick="showMessage('Version 2026')">
+Version
+</p>
+
+</div>
+
+</div>
+
+<img src="jan.png" class="profile-img">
+
+<h1>افغانستان لنډه پیژندنه</h1>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="box">
+<h2>34</h2>
+<span>ولایتونه</span>
+</div>
+
+<div class="box">
+<h2>400+</h2>
+<span>ولسوالۍ</span>
+</div>
+
+<div class="box">
+<h2>2026</h2>
+<span>نسخه</span>
+</div>
+
+</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons">
+
+<a href="index.html">
+<button class="follow">
+ولایتونه
+</button>
+</a>
+
+
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="about">
+
+<h3>زما په اړه</h3>
+
+<p>
+دا موبایل اپ د افغانستان د ولایتونو،
+ولسوالیو او عمومي معلوماتو لپاره جوړ شوی دی.
+تاسو کولی شئ دلته د افغانستان اړوند مهم معلومات وګورئ.
+</p>
+
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+
+</div>
+
+<script>
+
+function toggleMenu(){
+
+const menu = document.getElementById("menuBox");
+
+if(menu.style.display === "block"){
+
+menu.style.display = "none";
+
+}else{
+
+menu.style.display = "block";
+
+}
+
+}
+
+function showMessage(text){
+
+alert(text);
+
+}
+
+</script>
+
+</body>
+</html>
